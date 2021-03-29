@@ -6,6 +6,7 @@ namespace Scripts.EntityComponents.Movement
     public class ArenaBoundMovement : MonoBehaviour, IMovement
     {
         public Vector2 Position { get; private set; }
+        public Vector2 Velocity { get; private set; }
         public float Rotation { get; private set; }
         
         private Rigidbody2D _rigidbody2D;
@@ -30,12 +31,8 @@ namespace Scripts.EntityComponents.Movement
         public void Move(Vector2 offset)
         {
             Position += offset;
-            var boundPosition = CheckBound(Position);
-            
-            if (boundPosition == Position)
-                _rigidbody2D.MovePosition(Position);
-            else
-                SetPosition(boundPosition);
+            _rigidbody2D.MovePosition(Position);
+            CheckBound();
         }
 
         public void Rotate(float deltaAngle)
@@ -44,21 +41,46 @@ namespace Scripts.EntityComponents.Movement
             _rigidbody2D.MoveRotation(Rotation);
         }
 
-        private static Vector2 CheckBound(Vector2 position)
+        public void SetVelocity(Vector2 velocity)
+        {
+            Velocity = velocity;
+        }
+
+        public void Accelerate(Vector2 acceleration)
+        {
+            Velocity += acceleration;
+        }
+
+        private void Update()
+        {
+            if (Velocity != Vector2.zero)
+            {
+                Move(Velocity * Time.deltaTime);
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            CheckBound();
+        }
+
+        private void CheckBound()
         {
             var arenaArea = GameManager.Instance.ArenaArea;
-
-            if (position.x < arenaArea.xMin) 
+            var position = Position;
+            
+            if (position.x < arenaArea.xMin && Velocity.x <= 0f) 
                 position.x += arenaArea.width;
-            else if (position.x > arenaArea.xMax) 
+            if (position.x > arenaArea.xMax && Velocity.x >= 0f) 
                 position.x -= arenaArea.width;
 
-            if (position.y < arenaArea.yMin) 
+            if (position.y < arenaArea.yMin && Velocity.y <= 0f) 
                 position.y += arenaArea.height;
-            else if (position.y > arenaArea.yMax) 
+            else if (position.y > arenaArea.yMax && Velocity.y >= 0f)
                 position.y -= arenaArea.height;
 
-            return position;
+            if (position != Position)
+                SetPosition(position);
         }
     }
 }

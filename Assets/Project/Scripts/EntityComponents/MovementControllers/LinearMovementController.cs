@@ -7,10 +7,10 @@ namespace Scripts.EntityComponents.MovementControllers
     {
         [SerializeField] private float speed;
 
-        public override void Spawn(Vector2 position, float rotation)
+        public override void Spawn(Vector2 position, float rotation, Vector2 initialVelocity)
         {
-            base.Spawn(position, rotation);
-            Velocity = MathHelper.DegreeToVector2(rotation) * speed;
+            base.Spawn(position, rotation, initialVelocity);
+            Movement.Accelerate(MathHelper.DegreeToVector2(rotation) * speed);
         }
     }
 }

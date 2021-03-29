@@ -1,4 +1,5 @@
-﻿using Scripts.EntityComponents.MovementControllers;
+﻿using System;
+using Scripts.EntityComponents.MovementControllers;
 using UnityEngine;
 
 namespace Scripts.EntityComponents.Weapons
@@ -7,7 +8,14 @@ namespace Scripts.EntityComponents.Weapons
     {
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private Transform projectileOrigin;
+
+        private MovementController _parentMovementController;
         
+        private void Awake()
+        {
+            _parentMovementController = GetComponentInParent<MovementController>();
+        }
+
         public void Fire()
         {
             var projectileObject = Instantiate(projectilePrefab);
@@ -16,8 +24,7 @@ namespace Scripts.EntityComponents.Weapons
             projectileObject.transform.rotation = transform.rotation;
 
             var projectileMovement = projectileObject.GetComponent<MovementController>();
-            if (projectileMovement != null)
-                projectileMovement.Spawn(projectileOrigin.position, projectileOrigin.rotation.eulerAngles.z);
+            projectileMovement.Spawn(projectileOrigin.position, projectileOrigin.rotation.eulerAngles.z, _parentMovementController.Movement.Velocity);
         }
     }
 }

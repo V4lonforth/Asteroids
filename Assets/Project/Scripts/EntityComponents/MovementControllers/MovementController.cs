@@ -3,26 +3,20 @@ using UnityEngine;
 
 namespace Scripts.EntityComponents.MovementControllers
 {
-    public abstract class MovementController : MonoBehaviour
+    public class MovementController : MonoBehaviour
     {
-        protected Vector2 Velocity;
-        
-        protected IMovement Movement;
+        public IMovement Movement { get; private set; }
 
         protected void Awake()
         {
             Movement = GetComponent<IMovement>();
         }
 
-        protected void Update()
-        {
-            Movement.Move(Velocity * Time.deltaTime);
-        }
-
-        public virtual void Spawn(Vector2 position, float rotation)
+        public virtual void Spawn(Vector2 position, float rotation, Vector2 initialVelocity)
         {
             Movement.SetPosition(position);
             Movement.SetRotation(rotation);
+            Movement.SetVelocity(initialVelocity);
         }
     }
 }
