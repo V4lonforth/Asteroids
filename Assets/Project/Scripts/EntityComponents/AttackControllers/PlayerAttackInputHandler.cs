@@ -1,10 +1,12 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Scripts.EntityComponents.AttackControllers
 {
-    public class PlayerAttackController : MonoBehaviour
+    /// <summary>
+    /// Class for handling player attack input
+    /// </summary>
+    public class PlayerAttackInputHandler : MonoBehaviour
     {
         private bool _isAttacking;
         private IAttackController _attackController;
@@ -20,6 +22,9 @@ namespace Scripts.EntityComponents.AttackControllers
                 _attackController.Attack();
         }
 
+        /// <summary>
+        /// Called by Input System when attack button pressed
+        /// </summary>
         public void OnAttack(InputValue input)
         {
             _isAttacking = input.isPressed;

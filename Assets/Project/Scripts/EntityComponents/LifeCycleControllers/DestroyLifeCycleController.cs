@@ -1,5 +1,8 @@
-﻿namespace Scripts.EntityComponents.Removers
+﻿namespace Scripts.EntityComponents.LifeCycleControllers
 {
+    /// <summary>
+    /// Class that completely destroys game object
+    /// </summary>
     public class DestroyLifeCycleController : LifeCycleController
     {
         protected override void HandleSpawn()

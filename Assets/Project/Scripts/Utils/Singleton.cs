@@ -2,7 +2,10 @@
 
 namespace Scripts.Utils
 {
-    public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+    /// <summary>
+    /// Base class for MonoBehaviour singletons
+    /// </summary>
+    public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         private static T _instance;
 

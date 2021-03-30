@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Scripts.Managers
 {
+    /// <summary>
+    /// Class that handles high score 
+    /// </summary>
     public class HighScoreManager : MonoBehaviour
     {
         public Action<int> OnHighScoreChange { get; set; }

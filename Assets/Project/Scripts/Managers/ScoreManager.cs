@@ -1,12 +1,18 @@
 ﻿using System;
+using Scripts.EntityComponents.LifeCycleControllers;
 using Scripts.EntityComponents.Misc;
-using Scripts.EntityComponents.Removers;
 using UnityEngine;
 
 namespace Scripts.Managers
 {
+    /// <summary>
+    /// Class that handles current player score
+    /// </summary>
     public class ScoreManager : MonoBehaviour
     {
+        /// <summary>
+        /// Notifies when score changes 
+        /// </summary>
         public Action<int> OnScoreChange { get; set; }
         public int Score { get; private set; }
         
@@ -17,17 +23,17 @@ namespace Scripts.Managers
 
         private void AddEnemyListener(GameObject enemy)
         {
-            var remover = enemy.GetComponent<LifeCycleController>();
+            var lifeCycleController = enemy.GetComponent<LifeCycleController>();
             
-            if (remover.GetComponent<ScoreReward>() == null) return;
+            if (lifeCycleController.GetComponent<ScoreReward>() == null) return;
             
-            remover.OnDestroy += AddScore;
+            lifeCycleController.OnDestroy += AddScore;
         }
 
         private void AddScore(LifeCycleController lifeCycleController)
         {
             lifeCycleController.OnDestroy -= AddScore;
-            if (GameManager.Instance.Finished) return;
+            if (GameManager.Instance.IsFinished) return;
 
             Score += lifeCycleController.GetComponent<ScoreReward>().reward;
             OnScoreChange?.Invoke(Score);

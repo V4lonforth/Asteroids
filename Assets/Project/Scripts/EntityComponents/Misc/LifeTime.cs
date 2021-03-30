@@ -1,8 +1,11 @@
-﻿using Scripts.EntityComponents.Removers;
+﻿using Scripts.EntityComponents.LifeCycleControllers;
 using UnityEngine;
 
 namespace Scripts.EntityComponents.Misc
 {
+    /// <summary>
+    /// Class that destroys itself if lives for too long
+    /// </summary>
     public class LifeTime : MonoBehaviour
     {
         [SerializeField] private float timeToRemove;

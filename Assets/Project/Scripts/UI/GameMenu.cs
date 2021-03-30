@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 namespace Scripts.UI
 {
+    /// <summary>
+    /// Class that controls scenes
+    /// </summary>
     public class GameMenu : MonoBehaviour
     {
         public void StartGameScene()

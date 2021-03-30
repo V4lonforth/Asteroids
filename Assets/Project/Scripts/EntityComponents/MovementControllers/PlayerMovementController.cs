@@ -1,10 +1,13 @@
-﻿using Scripts.EntityComponents.Removers;
+﻿using Scripts.EntityComponents.LifeCycleControllers;
 using Scripts.Utils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Scripts.EntityComponents.MovementControllers
 {
+    /// <summary>
+    /// Uses Input System to move
+    /// </summary>
     public class PlayerMovementController : MovementController
     {
         private static readonly int IsAccelerating = Animator.StringToHash("IsAccelerating");
@@ -49,10 +52,16 @@ namespace Scripts.EntityComponents.MovementControllers
             return Vector2.ClampMagnitude(Movement.Velocity + currentAcceleration, maxSpeed);
         }
         
+        /// <summary>
+        /// Called by Input System 
+        /// </summary>
         private void OnRotate(InputValue input)
         {
             _rotationVelocity = input.Get<float>() * rotationSpeed;
         }
+        /// <summary>
+        /// Called by Input System 
+        /// </summary>
         private void OnAccelerate(InputValue input)
         {
             _isAccelerating = input.isPressed;

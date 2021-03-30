@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3265922457800375748, guid: 71575905c82b87b40bad2509e25c678b, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5089816466552140432, guid: 71575905c82b87b40bad2509e25c678b, type: 3}
       propertyPath: timeToRemove
       value: 1.4

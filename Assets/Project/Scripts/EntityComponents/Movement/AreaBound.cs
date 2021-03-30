@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Scripts.EntityComponents.Movement
 {
+    /// <summary>
+    /// Class that ensures entity doesn't leave the arena
+    /// </summary>
     public class AreaBound : MonoBehaviour
     {
         private IMovement _movement;

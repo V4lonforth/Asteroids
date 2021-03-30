@@ -1,5 +1,8 @@
-﻿namespace Scripts.EntityComponents.Removers
+﻿namespace Scripts.EntityComponents.LifeCycleControllers
 {
+    /// <summary>
+    /// Class that disables game object
+    /// </summary>
     public class DisableLifeCycleController : LifeCycleController
     {
         protected override void HandleSpawn()

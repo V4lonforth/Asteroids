@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Scripts.EntityComponents.MovementControllers
 {
+    /// <summary>
+    /// Controls how entity moves
+    /// </summary>
     public class MovementController : MonoBehaviour
     {
         public IMovement Movement { get; private set; }
@@ -12,6 +15,9 @@ namespace Scripts.EntityComponents.MovementControllers
             Movement = GetComponent<IMovement>();
         }
 
+        /// <summary>
+        /// Set start movement parameters
+        /// </summary>
         public virtual void Launch(Vector2 position, float rotation, Vector2 initialVelocity)
         {
             Movement.Position = position;

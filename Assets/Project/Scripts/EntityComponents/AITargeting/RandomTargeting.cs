@@ -2,6 +2,9 @@
 
 namespace Scripts.EntityComponents.AITargeting
 {
+    /// <summary>
+    /// Aims attack control in random directions
+    /// </summary>
     public class RandomTargeting : Targeting
     {
         protected override float GetAttackControllerRotation()

@@ -1,19 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using Scripts.EntityComponents.LifeCycleControllers;
 using Scripts.EntityComponents.MovementControllers;
-using Scripts.EntityComponents.Removers;
 using Scripts.Utils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Scripts.Managers
 {
+    /// <summary>
+    /// Class that spawns entities
+    /// </summary>
     public class Spawner : MonoBehaviour
     {
         private static readonly Vector2 SpawnPosition = Vector2.one * 1000f;
 
+        /// <summary>
+        /// Notifies when player is spawned
+        /// </summary>
         public Action<GameObject> OnPlayerSpawn { get; set; }
+        /// <summary>
+        /// Notifies when enemy is spawned
+        /// </summary>
         public Action<GameObject> OnEnemySpawn { get; set; }
+        /// <summary>
+        /// Is spawner still spawning enemies 
+        /// </summary>
         public bool IsSpawning { get; private set; }
 
         [SerializeField] private GameObject playerPrefab;
@@ -46,12 +58,18 @@ namespace Scripts.Managers
             _remainingTimeToSpawnEnemy = Random.Range(minTimeToSpawnEnemy, maxTimeToSpawnEnemy);
         }
 
+        /// <summary>
+        /// Setups spawner and spawns player
+        /// </summary>
         public void StartGame(Rect arenaArea)
         {
             _arenaArea = arenaArea;
             SpawnPlayer();
         }
 
+        /// <summary>
+        /// Spawns enemies depending on current round number
+        /// </summary>
         public void StartRound(int number)
         {
             IsSpawning = true;
@@ -85,7 +103,7 @@ namespace Scripts.Managers
 
         private static GameObject Spawn(GameObject prefab, Vector2 position, float rotation, Vector2 velocity)
         {
-            var spawnedObject = Instantiate(prefab, SpawnPosition, Quaternion.identity);
+            var spawnedObject = Instantiate(prefab, position, Quaternion.identity);
             spawnedObject.GetComponent<LifeCycleController>().Spawn();
             spawnedObject.GetComponent<MovementController>().Launch(position, rotation, velocity);
             return spawnedObject;

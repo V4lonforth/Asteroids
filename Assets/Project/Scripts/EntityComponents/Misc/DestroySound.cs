@@ -1,8 +1,11 @@
-﻿using Scripts.EntityComponents.Removers;
+﻿using Scripts.EntityComponents.LifeCycleControllers;
 using UnityEngine;
 
 namespace Scripts.EntityComponents.Misc
 {
+    /// <summary>
+    /// Class that listens for entity destroy and plays sound
+    /// </summary>
     public class DestroySound : MonoBehaviour
     {
         [SerializeField] private AudioClip destroySound;

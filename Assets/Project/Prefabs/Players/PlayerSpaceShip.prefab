@@ -152,12 +152,12 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005568481328818992}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1000
+  m_LinearDrag: 0.4
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -248,7 +248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6302ee1257fc44ec8beb30a05c76ac4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 0.25
 --- !u!114 &-8435850618618444640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,4 +473,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySound: {fileID: 8300000, guid: 2de625a4d8bc83b4da82d0a5c9006f33, type: 3}
-  audioSource: {fileID: 8406695158138676753}

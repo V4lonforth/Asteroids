@@ -1,9 +1,12 @@
 ﻿using Scripts.EntityComponents.Health;
-using Scripts.EntityComponents.Removers;
+using Scripts.EntityComponents.LifeCycleControllers;
 using UnityEngine;
 
 namespace Scripts.EntityComponents.HittingBodies
 {
+    /// <summary>
+    /// Class that damages hit entities and destroys itself
+    /// </summary>
     public class DamagingHittingBody : HittingBody
     {
         [SerializeField] private int damage;

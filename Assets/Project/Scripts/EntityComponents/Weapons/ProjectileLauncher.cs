@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Scripts.EntityComponents.Weapons
 {
+    /// <summary>
+    /// Default shooting projectiles weapon
+    /// </summary>
     public class ProjectileLauncher : MonoBehaviour, IWeapon
     {
         [SerializeField] private GameObject projectilePrefab;
@@ -18,6 +21,9 @@ namespace Scripts.EntityComponents.Weapons
             _parentMovementController = GetComponentInParent<MovementController>();
         }
 
+        /// <summary>
+        /// Fires projectile in direction of the weapon
+        /// </summary>
         public void Fire()
         {
             var projectileObject = Instantiate(projectilePrefab);

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Scripts.EntityComponents.AITargeting
 {
+    /// <summary>
+    /// Targets attack controller at player
+    /// </summary>
     public class PlayerTargeting : Targeting
     {
         [SerializeField] private float spread;

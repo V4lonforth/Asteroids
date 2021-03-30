@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1996807340457941523, guid: 79e4e7dec5a0b6f4cab502b1e5ae1a8c, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8090258793927808323, guid: 79e4e7dec5a0b6f4cab502b1e5ae1a8c, type: 3}
       propertyPath: m_RootOrder
       value: 0

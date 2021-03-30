@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 namespace Scripts.UI
 {
+    /// <summary>
+    /// Class that displays resurrections left
+    /// </summary>
     public class ResurrectsDisplay : MonoBehaviour
     {
         [SerializeField] private Text livesText;

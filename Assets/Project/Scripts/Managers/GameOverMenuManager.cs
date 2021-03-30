@@ -2,6 +2,9 @@
 
 namespace Scripts.Managers
 {
+    /// <summary>
+    /// Class that shows game over menu
+    /// </summary>
     public class GameOverMenuManager : MonoBehaviour
     {
         [SerializeField] private GameObject menu;

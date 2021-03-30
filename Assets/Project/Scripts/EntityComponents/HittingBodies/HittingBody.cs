@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Scripts.EntityComponents.HittingBodies
 {
+    /// <summary>
+    /// Base class for handling entity contact with other entities
+    /// </summary>
     public abstract class HittingBody : MonoBehaviour
     {
         [SerializeField] private LayerMask targetLayerMask;
@@ -15,6 +18,10 @@ namespace Scripts.EntityComponents.HittingBodies
             Hit(health);
         }
 
+        /// <summary>
+        /// Handles contact
+        /// </summary>
+        /// <param name="healthController"></param>
         protected abstract void Hit(HealthController healthController);
     }
 }

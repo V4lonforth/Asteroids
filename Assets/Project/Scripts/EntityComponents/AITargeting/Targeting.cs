@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Scripts.EntityComponents.AITargeting
 {
+    /// <summary>
+    /// Base abstract class for aiming attack controller
+    /// </summary>
     public abstract class Targeting : MonoBehaviour
     {
         [SerializeField] protected Transform attackControllerTransform;
@@ -21,6 +24,10 @@ namespace Scripts.EntityComponents.AITargeting
             _attackController.Attack();
         }
 
+        /// <summary>
+        /// Calculates attack controller rotation angle
+        /// </summary>
+        /// <returns>The angle of attack controller</returns>
         protected abstract float GetAttackControllerRotation();
     }
 }

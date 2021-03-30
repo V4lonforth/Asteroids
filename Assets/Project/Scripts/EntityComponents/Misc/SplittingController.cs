@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
+using Scripts.EntityComponents.LifeCycleControllers;
 using Scripts.EntityComponents.Movement;
-using Scripts.EntityComponents.Removers;
 using Scripts.Managers;
 using Scripts.Utils;
 using UnityEngine;
 
 namespace Scripts.EntityComponents.Misc
 {
+    /// <summary>
+    /// Class that spawns new enemies when the enemy is killed
+    /// </summary>
     public class SplittingController : MonoBehaviour
     {
         [SerializeField] private List<GameObject> splitPrefabs;

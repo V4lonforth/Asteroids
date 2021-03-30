@@ -1,17 +1,26 @@
 ﻿using System;
 using System.Collections;
-using Scripts.EntityComponents.Removers;
+using Scripts.EntityComponents.LifeCycleControllers;
 using UnityEngine;
 
 namespace Scripts.Managers
 {
+    /// <summary>
+    /// Class that revives player
+    /// </summary>
     public class ResurrectManager : MonoBehaviour
     {
+        /// <summary>
+        /// Notifies when amount of lives changes
+        /// </summary>
         public Action<int> OnLivesChanged;
 
         [SerializeField] private int lives;
         [SerializeField] private float respawnTime;
 
+        /// <summary>
+        /// Current amount of resurrections left
+        /// </summary>
         public int LivesLeft { get; private set; }
 
         private void Awake()

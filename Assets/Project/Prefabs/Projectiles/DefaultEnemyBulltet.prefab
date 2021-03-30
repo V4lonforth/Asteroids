@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 3446940945057615603}
   - component: {fileID: 1439092846113667006}
   - component: {fileID: 4915158895459548236}
-  - component: {fileID: 923328678834104469}
   m_Layer: 10
   m_Name: DefaultEnemyBulltet
   m_TagString: Projectile
@@ -140,7 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6302ee1257fc44ec8beb30a05c76ac4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 0
 --- !u!114 &3923451039239212767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,16 +205,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToRemove: 1.5
---- !u!114 &923328678834104469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5306008811615111264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5b924e6943145d5b8f26867b49050ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drag: 0

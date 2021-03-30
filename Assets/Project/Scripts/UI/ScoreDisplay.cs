@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 namespace Scripts.UI
 {
+    /// <summary>
+    /// Class that displays current score
+    /// </summary>
     public class ScoreDisplay : MonoBehaviour
     {
         [SerializeField] private Text scoreText;

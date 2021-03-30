@@ -3,8 +3,16 @@ using UnityEngine;
 
 namespace Scripts.EntityComponents.AttackControllers
 {
+    /// <summary>
+    /// Attack controller that fires every weapon at the same time
+    /// </summary>
     public class SalvoAttackController : MonoBehaviour, IAttackController
     {
+        /// <summary>
+        /// Can attack if not on cooldown
+        /// </summary>
+        public bool CanAttack => _remainingCooldown <= 0f;
+        
         [SerializeField] private float cooldown;
         
         private IWeapon[] _weapons;
@@ -24,8 +32,9 @@ namespace Scripts.EntityComponents.AttackControllers
             }
         }
 
-        public bool CanAttack => _remainingCooldown <= 0f;
-
+        /// <summary>
+        /// Attack with all weapons if able to
+        /// </summary>
         public void Attack()
         {
             if (!CanAttack) return;

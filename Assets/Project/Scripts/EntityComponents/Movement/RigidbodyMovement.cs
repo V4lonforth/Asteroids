@@ -1,20 +1,17 @@
-﻿using Scripts.EntityComponents.Removers;
+﻿using Scripts.EntityComponents.LifeCycleControllers;
 using UnityEngine;
 
 namespace Scripts.EntityComponents.Movement
 {
+    /// <summary>
+    /// Uses rigidbody to move
+    /// </summary>
     public class RigidbodyMovement : MonoBehaviour, IMovement
     {
-        [SerializeField] private float drag;
-
         public Vector2 Position
         {
-            get => _position;
-            set
-            {
-                _position = value;
-                _rigidbody2D.position = value;
-            }
+            get => _rigidbody2D.position;
+            set => _rigidbody2D.position = value;
         }
 
         public float Rotation
@@ -27,9 +24,12 @@ namespace Scripts.EntityComponents.Movement
             }
         }
 
-        public Vector2 Velocity { get; set; }
+        public Vector2 Velocity 
+        {
+            get => _rigidbody2D.velocity;
+            set => _rigidbody2D.velocity = value;
+        }
 
-        private Vector2 _position;
         private float _rotation;
 
         private Rigidbody2D _rigidbody2D;
@@ -47,27 +47,18 @@ namespace Scripts.EntityComponents.Movement
 
         public void Move(Vector2 offset)
         {
-            _position += offset;
-            _rigidbody2D.MovePosition(Position);
+            _rigidbody2D.MovePosition(Position + offset);
         }
 
         public void Rotate(float deltaAngle)
         {
-            Rotation -= deltaAngle;
-            _rigidbody2D.MoveRotation(Rotation);
+            _rotation = Rotation - deltaAngle;
+            _rigidbody2D.MoveRotation(_rotation);
         }
 
         public void Accelerate(Vector2 acceleration)
         {
             Velocity += acceleration;
-        }
-
-        private void Update()
-        {
-            if (Velocity == Vector2.zero) return;
-
-            Velocity = drag >= 1f ? Vector2.zero : Velocity - Velocity * (drag * Time.deltaTime);
-            Move(Velocity * Time.deltaTime);
         }
     }
 }

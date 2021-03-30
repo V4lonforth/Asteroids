@@ -2,6 +2,9 @@
 
 namespace Scripts.EntityComponents.MovementControllers
 {
+    /// <summary>
+    /// Launches with random movement speed
+    /// </summary>
     public class RandomSpeedLaunchMovementController : MovementController
     {
         [SerializeField] private float minSpeed;

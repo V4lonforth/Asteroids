@@ -1,12 +1,16 @@
 ﻿using System.Collections.Generic;
+using Scripts.EntityComponents.LifeCycleControllers;
 using Scripts.EntityComponents.Movement;
 using Scripts.EntityComponents.MovementControllers;
-using Scripts.EntityComponents.Removers;
 using Scripts.Utils;
 using UnityEngine;
 
 namespace Scripts.EntityComponents.Misc
 {
+    /// <summary>
+    /// Class for controlling death animation
+    /// Spawns fragments at the place of entity death
+    /// </summary>
     public class WreckController : MonoBehaviour
     {
         [SerializeField] private List<GameObject> fragmentPrefabs;

@@ -2,6 +2,9 @@
 
 namespace Scripts.Utils
 {
+    /// <summary>
+    /// Class that helps with simple operations
+    /// </summary>
     public static class MathHelper
     {
         public static Vector2 RadianToVector2(float radian)

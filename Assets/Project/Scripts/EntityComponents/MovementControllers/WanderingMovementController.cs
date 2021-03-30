@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Scripts.EntityComponents.MovementControllers
 {
+    /// <summary>
+    /// Changes movement direction and velocity periodically
+    /// </summary>
     public class WanderingMovementController : MovementController
     {
         [SerializeField] private float minTimeToChangeDirection;
