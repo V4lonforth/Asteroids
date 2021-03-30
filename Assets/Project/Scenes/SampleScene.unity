@@ -352,6 +352,7 @@ MonoBehaviour:
   - {fileID: 8682493525855732671, guid: 6c73b5bcf8bbe2645aeedfd2309df8f4, type: 3}
   - {fileID: 3030859935649878457, guid: 6a64755c212c083449eecc53b504d901, type: 3}
   duringRoundEnemyPrefabs:
+  - {fileID: 7148123390686132507, guid: b38da941941dcde428b75ff413e36250, type: 3}
   - {fileID: 4018120973540346945, guid: 1cfea268f70254e46acc30c41b12e16c, type: 3}
   minTimeToSpawnEnemy: 5
   maxTimeToSpawnEnemy: 10

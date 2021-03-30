@@ -1,5 +1,4 @@
-﻿using System;
-using Scripts.EntityComponents.MovementControllers;
+﻿using Scripts.EntityComponents.MovementControllers;
 using UnityEngine;
 
 namespace Scripts.EntityComponents.Weapons
@@ -9,6 +8,9 @@ namespace Scripts.EntityComponents.Weapons
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private Transform projectileOrigin;
 
+        [SerializeField] private AudioClip fireSound;
+        [SerializeField] private AudioSource audioSource;
+        
         private MovementController _parentMovementController;
         
         private void Awake()
@@ -25,6 +27,8 @@ namespace Scripts.EntityComponents.Weapons
 
             var projectileMovement = projectileObject.GetComponent<MovementController>();
             projectileMovement.Launch(projectileOrigin.position, projectileOrigin.rotation.eulerAngles.z, _parentMovementController.Movement.Velocity);
+            
+            audioSource.PlayOneShot(fireSound);
         }
     }
 }

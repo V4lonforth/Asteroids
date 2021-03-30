@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: -8058891351280937062}
   - component: {fileID: 1640405284296307196}
   - component: {fileID: 5091554346746713376}
+  - component: {fileID: 2109210763478756295}
   m_Layer: 7
   m_Name: LargeAsteroid1
   m_TagString: Asteroid
@@ -283,3 +284,16 @@ MonoBehaviour:
   minInitialSpeed: 0.3
   maxInitialSpeed: 1.5
   wreckTimeSkip: 0.1
+--- !u!114 &2109210763478756295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492431884426954075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237a2f4cac6349e6a7b16a1da0e11f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroySound: {fileID: 8300000, guid: 2de625a4d8bc83b4da82d0a5c9006f33, type: 3}
