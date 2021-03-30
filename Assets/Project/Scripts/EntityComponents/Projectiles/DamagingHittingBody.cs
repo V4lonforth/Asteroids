@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Scripts.EntityComponents.Projectiles
 {
-    public class Bullet : Projectile
+    public class DamagingHittingBody : HittingBody
     {
         [SerializeField] private int damage;
 

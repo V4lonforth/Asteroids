@@ -117,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1492431884426954075, guid: 2c871acac49e5e44696856b14827380c, type: 3}
       propertyPath: m_Name
-      value: Asteroid4
+      value: LargeAsteroid4
       objectReference: {fileID: 0}
     - target: {fileID: 3721399384404110714, guid: 2c871acac49e5e44696856b14827380c, type: 3}
       propertyPath: m_RootOrder

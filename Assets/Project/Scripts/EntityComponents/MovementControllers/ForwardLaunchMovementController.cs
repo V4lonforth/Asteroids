@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Scripts.EntityComponents.MovementControllers
 {
-    public class LinearMovementController : MovementController
+    public class ForwardLaunchMovementController : MovementController
     {
         [SerializeField] private float speed;
 

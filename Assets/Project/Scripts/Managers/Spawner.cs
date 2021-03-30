@@ -10,22 +10,22 @@ namespace Scripts.Managers
     public class Spawner : MonoBehaviour
     {
         private static readonly Vector2 SpawnPosition = Vector2.one * 1000f;
-        
+
         public Action<GameObject> OnPlayerSpawn { get; set; }
         public Action<GameObject> OnEnemySpawn { get; set; }
         public bool IsSpawning { get; private set; }
-        
+
         [SerializeField] private GameObject playerPrefab;
         [SerializeField] private List<GameObject> initialEnemyPrefabs;
 
         private Rect _arenaArea;
-        
+
         public void StartGame(Rect arenaArea)
         {
             _arenaArea = arenaArea;
             SpawnPlayer();
         }
-        
+
         public void StartRound(int number)
         {
             IsSpawning = true;
@@ -34,27 +34,32 @@ namespace Scripts.Managers
             {
                 SpawnEnemy(initialEnemyPrefabs[Random.Range(0, initialEnemyPrefabs.Count)]);
             }
-            
+
             IsSpawning = false;
         }
-        
+
         private void SpawnPlayer()
         {
-            var playerObject = Spawn(playerPrefab, Vector2.zero, 0f);
+            var playerObject = Spawn(playerPrefab, Vector2.zero, 0f, Vector2.zero);
             OnPlayerSpawn?.Invoke(playerObject);
+        }
+
+        public void SpawnEnemy(GameObject prefab, Vector2 position, float rotation, Vector2 velocity)
+        {
+            OnEnemySpawn?.Invoke(Spawn(prefab, position, rotation, velocity));
         }
 
         private void SpawnEnemy(GameObject prefab)
         {
             var border = GetRandomBorder();
-            var enemyObject = Spawn(prefab, GetRandomBorderPosition(border), GetRandomDirection(border));
-            OnEnemySpawn?.Invoke(enemyObject);
+            SpawnEnemy(prefab, GetRandomBorderPosition(border), Random.Range(0f, 360f),
+                MathHelper.DegreeToVector2(GetRandomDirection(border)));
         }
 
-        private static GameObject Spawn(GameObject prefab, Vector2 position, float rotation)
+        private static GameObject Spawn(GameObject prefab, Vector2 position, float rotation, Vector2 velocity)
         {
             var spawnedObject = Instantiate(prefab, SpawnPosition, Quaternion.identity);
-            spawnedObject.GetComponent<MovementController>().Spawn(position, rotation, Vector2.zero);
+            spawnedObject.GetComponent<MovementController>().Spawn(position, rotation, velocity);
             return spawnedObject;
         }
 
@@ -68,11 +73,12 @@ namespace Scripts.Managers
         {
             return MathHelper.Vector2ToDegree(border) + Random.Range(-90f, 90f);
         }
-        
+
         private Vector2 GetRandomBorderPosition(Vector2Int border)
         {
             var number = Random.Range(-1f, 1f);
-            return _arenaArea.center + border * _arenaArea.size / 2f + new Vector2(border.y, border.x) * number * _arenaArea.size / 2f;
+            return _arenaArea.center + border * _arenaArea.size / 2f +
+                   new Vector2(border.y, border.x) * number * _arenaArea.size / 2f;
         }
     }
 }

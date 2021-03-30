@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Scripts.EntityComponents.Projectiles
 {
-    public abstract class Projectile : MonoBehaviour
+    public abstract class HittingBody : MonoBehaviour
     {
         [SerializeField] private LayerMask targetLayerMask;
         

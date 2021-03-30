@@ -105,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1492431884426954075, guid: 2c871acac49e5e44696856b14827380c, type: 3}
       propertyPath: m_Name
-      value: Asteroid2 Variant
+      value: LargeAsteroid2
       objectReference: {fileID: 0}
     - target: {fileID: 3721399384404110714, guid: 2c871acac49e5e44696856b14827380c, type: 3}
       propertyPath: m_RootOrder
@@ -150,6 +150,14 @@ PrefabInstance:
     - target: {fileID: 3721399384404110714, guid: 2c871acac49e5e44696856b14827380c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836027058304804685, guid: 2c871acac49e5e44696856b14827380c, type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836027058304804685, guid: 2c871acac49e5e44696856b14827380c, type: 3}
+      propertyPath: minSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5991894479849745898, guid: 2c871acac49e5e44696856b14827380c, type: 3}
       propertyPath: m_Sprite

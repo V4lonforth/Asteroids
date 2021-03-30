@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 7505098921218453431}
   - component: {fileID: 408664260169831292}
   - component: {fileID: 3080626005316783739}
-  - component: {fileID: 8584865960907843184}
+  - component: {fileID: 4836027058304804685}
   - component: {fileID: 8216791484993781631}
   - component: {fileID: 6006325525192974211}
   - component: {fileID: -36021436238687460}
+  - component: {fileID: -8058891351280937062}
   m_Layer: 7
-  m_Name: Asteroid1
+  m_Name: LargeAsteroid1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 1492431884426954075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -159,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6302ee1257fc44ec8beb30a05c76ac4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8584865960907843184
+--- !u!114 &4836027058304804685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,10 +169,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1492431884426954075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f5748043f04306b120d6a071739b2e, type: 3}
+  m_Script: {fileID: 11500000, guid: 28b1622e38964f919190d463af1be2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  minSpeed: 4
+  maxSpeed: 8
 --- !u!114 &8216791484993781631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,3 +215,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 320
   damage: 1
+--- !u!114 &-8058891351280937062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492431884426954075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40a032973a8405dab83fd2345ba6ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitPrefabs:
+  - {fileID: 8134259783445451633, guid: 2db89cfdb4ad3da46b0c5b9f422f721f, type: 3}
+  - {fileID: 4764518726735991409, guid: 9a5fc9e22d12fe945a02fe7fe9942de8, type: 3}
+  - {fileID: 4389646801749755476, guid: a3b591d84062c3f4d8214edf25c8e2c8, type: 3}
+  - {fileID: 2736857750751425896, guid: 5d6b06049c8eb254fa7f409596c823c2, type: 3}
+  - {fileID: 6206143111624908939, guid: 3bef5a45345f28e4ab81e14af9955e65, type: 3}
+  splitCount: 2

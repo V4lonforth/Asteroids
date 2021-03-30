@@ -9,17 +9,17 @@ namespace Scripts.Managers
     public class GameManager : Singleton<GameManager>
     {
         public Rect ArenaArea => arenaArea;
+        public Spawner Spawner { get; private set; }
 
         [SerializeField] private Rect arenaArea;
 
         private readonly List<Remover> _removers = new List<Remover>();
-        private Spawner _spawner;
         private int _currentRound = 1;
         
         private void Awake()
         {
-            _spawner = GetComponent<Spawner>();
-            _spawner.OnEnemySpawn += AddEnemyListener;
+            Spawner = GetComponent<Spawner>();
+            Spawner.OnEnemySpawn += AddEnemyListener;
         }
 
         private void Start()
@@ -29,8 +29,8 @@ namespace Scripts.Managers
 
         private void StartGame()
         {
-            _spawner.StartGame(arenaArea);
-            _spawner.StartRound(_currentRound);
+            Spawner.StartGame(arenaArea);
+            Spawner.StartRound(_currentRound);
         }
 
         private void AddEnemyListener(GameObject enemyObject)
@@ -45,10 +45,10 @@ namespace Scripts.Managers
         private void RemoveEnemy(Remover remover)
         {
             _removers.Remove(remover);
-            if (_removers.Count > 0 || _spawner.IsSpawning) return;
+            if (_removers.Count > 0 || Spawner.IsSpawning) return;
 
             _currentRound++;
-            _spawner.StartRound(_currentRound);
+            Spawner.StartRound(_currentRound);
         }
     }
 }
