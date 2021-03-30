@@ -1,7 +1,7 @@
 ﻿using Scripts.EntityComponents.Health;
 using UnityEngine;
 
-namespace Scripts.EntityComponents.Projectiles
+namespace Scripts.EntityComponents.HittingBodies
 {
     public abstract class HittingBody : MonoBehaviour
     {

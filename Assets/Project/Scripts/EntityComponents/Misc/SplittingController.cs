@@ -5,7 +5,7 @@ using Scripts.Managers;
 using Scripts.Utils;
 using UnityEngine;
 
-namespace Scripts.EntityComponents
+namespace Scripts.EntityComponents.Misc
 {
     public class SplittingController : MonoBehaviour
     {

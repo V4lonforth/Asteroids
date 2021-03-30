@@ -2,7 +2,7 @@
 using Scripts.EntityComponents.Removers;
 using UnityEngine;
 
-namespace Scripts.EntityComponents.Projectiles
+namespace Scripts.EntityComponents.HittingBodies
 {
     public class DamagingHittingBody : HittingBody
     {
