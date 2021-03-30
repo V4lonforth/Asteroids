@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.EntityComponents.Removers;
+using UnityEngine;
 
 namespace Scripts.EntityComponents.Movement
 {
@@ -17,6 +18,16 @@ namespace Scripts.EntityComponents.Movement
         {
             get => transform.rotation.eulerAngles.z;
             set => transform.rotation = Quaternion.Euler(0f, 0f, value);
+        }
+
+        private void Awake()
+        {
+            GetComponent<LifeCycleController>().OnSpawn += Spawn;
+        }
+        
+        private void Spawn(LifeCycleController lifeCycleController)
+        {
+            Velocity = Vector2.zero;
         }
         
         public void Move(Vector2 offset)

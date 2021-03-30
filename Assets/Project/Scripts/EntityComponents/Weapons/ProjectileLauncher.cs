@@ -24,7 +24,7 @@ namespace Scripts.EntityComponents.Weapons
             projectileObject.transform.rotation = transform.rotation;
 
             var projectileMovement = projectileObject.GetComponent<MovementController>();
-            projectileMovement.Spawn(projectileOrigin.position, projectileOrigin.rotation.eulerAngles.z, _parentMovementController.Movement.Velocity);
+            projectileMovement.Launch(projectileOrigin.position, projectileOrigin.rotation.eulerAngles.z, _parentMovementController.Movement.Velocity);
         }
     }
 }

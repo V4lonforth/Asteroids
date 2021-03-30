@@ -14,10 +14,10 @@ namespace Scripts.EntityComponents.Misc
 
         private void Awake()
         {
-            GetComponent<Remover>().OnRemove += Split;
+            GetComponent<LifeCycleController>().OnDestroy += Split;
         }
 
-        private void Split(Remover remover)
+        private void Split(LifeCycleController lifeCycleController)
         {
             var spawner = GameManager.Instance.Spawner;
             var movement = GetComponent<IMovement>();

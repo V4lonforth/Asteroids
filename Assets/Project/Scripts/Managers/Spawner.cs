@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Scripts.EntityComponents.MovementControllers;
+using Scripts.EntityComponents.Removers;
 using Scripts.Utils;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -59,7 +60,8 @@ namespace Scripts.Managers
         private static GameObject Spawn(GameObject prefab, Vector2 position, float rotation, Vector2 velocity)
         {
             var spawnedObject = Instantiate(prefab, SpawnPosition, Quaternion.identity);
-            spawnedObject.GetComponent<MovementController>().Spawn(position, rotation, velocity);
+            spawnedObject.GetComponent<LifeCycleController>().Spawn();
+            spawnedObject.GetComponent<MovementController>().Launch(position, rotation, velocity);
             return spawnedObject;
         }
 

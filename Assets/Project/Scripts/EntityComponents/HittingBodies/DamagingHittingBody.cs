@@ -16,7 +16,7 @@ namespace Scripts.EntityComponents.HittingBodies
 
             _hasHit = true;
             healthController.TakeDamage(damage);
-            GetComponent<Remover>().Remove();
+            GetComponent<LifeCycleController>().Destroy();
         }
     }
 }

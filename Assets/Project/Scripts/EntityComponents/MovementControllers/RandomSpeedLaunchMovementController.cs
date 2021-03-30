@@ -7,9 +7,9 @@ namespace Scripts.EntityComponents.MovementControllers
         [SerializeField] private float minSpeed;
         [SerializeField] private float maxSpeed;
 
-        public override void Spawn(Vector2 position, float rotation, Vector2 direction)
+        public override void Launch(Vector2 position, float rotation, Vector2 direction)
         {
-            base.Spawn(position, rotation, Vector2.zero);
+            base.Launch(position, rotation, Vector2.zero);
             Movement.Accelerate(direction * Random.Range(minSpeed, maxSpeed));
         }
     }

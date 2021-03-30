@@ -20,7 +20,7 @@ namespace Scripts.Managers
 
         [SerializeField] private Rect arenaArea;
 
-        private readonly List<Remover> _removers = new List<Remover>();
+        private readonly List<LifeCycleController> _removers = new List<LifeCycleController>();
         private int _currentRound;
         
         private void Awake()
@@ -56,7 +56,7 @@ namespace Scripts.Managers
             StartRound();
         }
 
-        private void FinishGame()
+        public void FinishGame()
         {
             Finished = true;
             
@@ -65,16 +65,16 @@ namespace Scripts.Managers
         
         private void AddEnemyListener(GameObject enemyObject)
         {
-            var remover = enemyObject.GetComponent<Remover>();
+            var remover = enemyObject.GetComponent<LifeCycleController>();
             if (remover == null) return;
             
             _removers.Add(remover);
-            remover.OnRemove += RemoveEnemy;
+            remover.OnDestroy += RemoveEnemy;
         }
 
-        private void RemoveEnemy(Remover remover)
+        private void RemoveEnemy(LifeCycleController lifeCycleController)
         {
-            _removers.Remove(remover);
+            _removers.Remove(lifeCycleController);
             if (_removers.Count > 0 || Spawner.IsSpawning) return;
 
             FinishRound();

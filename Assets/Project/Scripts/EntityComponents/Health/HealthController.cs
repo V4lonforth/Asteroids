@@ -9,7 +9,12 @@ namespace Scripts.EntityComponents.Health
 
         private int _currentHealth;
 
-        private void Start()
+        private void Awake()
+        {
+            GetComponent<LifeCycleController>().OnSpawn += Spawn;
+        }
+
+        private void Spawn(LifeCycleController lifeCycleController)
         {
             _currentHealth = maxHealth;
         }
@@ -26,7 +31,7 @@ namespace Scripts.EntityComponents.Health
 
         private void Die()
         {
-            GetComponent<Remover>().Remove();
+            GetComponent<LifeCycleController>().Destroy();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Scripts.Utils;
+﻿using Scripts.EntityComponents.Removers;
+using Scripts.Utils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,13 @@ namespace Scripts.EntityComponents.MovementControllers
         {
             base.Awake();
             _animator = GetComponent<Animator>();
+            GetComponent<LifeCycleController>().OnSpawn += Spawn;
+        }
+
+        private void Spawn(LifeCycleController lifeCycleController)
+        {
+            _rotationVelocity = 0f;
+            _isAccelerating = false;
         }
         
         protected void Update()

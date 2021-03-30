@@ -19,12 +19,12 @@ namespace Scripts.EntityComponents.Misc
 
         private void Awake()
         {
-            GetComponent<Remover>().OnRemove += Wreck;
+            GetComponent<LifeCycleController>().OnDestroy += Wreck;
         }
 
-        private void Wreck(Remover remover)
+        private void Wreck(LifeCycleController lifeCycleController)
         {
-            var movement = remover.GetComponent<IMovement>();
+            var movement = lifeCycleController.GetComponent<IMovement>();
 
             for (var i = 0; i < fragmentAmount; i++)
             {
@@ -36,8 +36,9 @@ namespace Scripts.EntityComponents.Misc
                 var fragment = Instantiate(fragmentPrefabs[Random.Range(0, fragmentPrefabs.Count)], position,
                     Quaternion.identity);
 
+                fragment.GetComponent<LifeCycleController>().Spawn();
                 fragment.GetComponent<MovementController>()
-                    .Spawn(position, Random.Range(0f, 360f), velocity);
+                    .Launch(position, Random.Range(0f, 360f), velocity);
             }
         }
     }

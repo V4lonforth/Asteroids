@@ -17,19 +17,19 @@ namespace Scripts.Managers
 
         private void AddEnemyListener(GameObject enemy)
         {
-            var remover = enemy.GetComponent<Remover>();
+            var remover = enemy.GetComponent<LifeCycleController>();
             
             if (remover.GetComponent<ScoreReward>() == null) return;
             
-            remover.OnRemove += AddScore;
+            remover.OnDestroy += AddScore;
         }
 
-        private void AddScore(Remover remover)
+        private void AddScore(LifeCycleController lifeCycleController)
         {
-            remover.OnRemove -= AddScore;
+            lifeCycleController.OnDestroy -= AddScore;
             if (GameManager.Instance.Finished) return;
 
-            Score += remover.GetComponent<ScoreReward>().reward;
+            Score += lifeCycleController.GetComponent<ScoreReward>().reward;
             OnScoreChange?.Invoke(Score);
         }
     }

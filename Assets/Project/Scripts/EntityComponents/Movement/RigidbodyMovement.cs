@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.EntityComponents.Removers;
+using UnityEngine;
 
 namespace Scripts.EntityComponents.Movement
 {
@@ -36,6 +37,12 @@ namespace Scripts.EntityComponents.Movement
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            GetComponent<LifeCycleController>().OnSpawn += Spawn;
+        }
+        
+        private void Spawn(LifeCycleController lifeCycleController)
+        {
+            Velocity = Vector2.zero;
         }
 
         public void Move(Vector2 offset)

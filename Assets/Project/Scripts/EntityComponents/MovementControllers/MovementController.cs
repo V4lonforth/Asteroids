@@ -12,7 +12,7 @@ namespace Scripts.EntityComponents.MovementControllers
             Movement = GetComponent<IMovement>();
         }
 
-        public virtual void Spawn(Vector2 position, float rotation, Vector2 initialVelocity)
+        public virtual void Launch(Vector2 position, float rotation, Vector2 initialVelocity)
         {
             Movement.Position = position;
             Movement.Rotation = rotation;

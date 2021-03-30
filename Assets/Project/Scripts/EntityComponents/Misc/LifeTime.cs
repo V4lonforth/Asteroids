@@ -23,7 +23,7 @@ namespace Scripts.EntityComponents.Misc
             if (_remainingTimeToRemove > 0f) return;
             
             _isRemoved = true;
-            GetComponent<Remover>().Remove();
+            GetComponent<LifeCycleController>().Destroy();
         }
     }
 }
