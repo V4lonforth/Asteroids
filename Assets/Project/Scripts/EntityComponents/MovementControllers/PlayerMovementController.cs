@@ -10,7 +10,6 @@ namespace Scripts.EntityComponents.MovementControllers
         
         [SerializeField] private float maxSpeed;
         [SerializeField] private float acceleration;
-        [SerializeField] private float drag;
 
         [SerializeField] private float rotationSpeed;
 
@@ -28,14 +27,13 @@ namespace Scripts.EntityComponents.MovementControllers
         protected void Update()
         {
             Movement.Rotate(_rotationVelocity * Time.deltaTime);
-            Movement.SetVelocity(Accelerate(GetAcceleration() * Time.deltaTime));
+            if (_isAccelerating)
+                Movement.Velocity = Accelerate(GetAcceleration() * Time.deltaTime);
         }
 
         private Vector2 GetAcceleration()
         {
-            return _isAccelerating
-                ? MathHelper.DegreeToVector2(Movement.Rotation) * acceleration
-                : -Movement.Velocity * drag;
+            return MathHelper.DegreeToVector2(Movement.Rotation) * acceleration;
         }
         
         private Vector2 Accelerate(Vector2 currentAcceleration)

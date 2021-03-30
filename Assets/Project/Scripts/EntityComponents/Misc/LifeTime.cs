@@ -1,5 +1,4 @@
-﻿using System;
-using Scripts.EntityComponents.Removers;
+﻿using Scripts.EntityComponents.Removers;
 using UnityEngine;
 
 namespace Scripts.EntityComponents.Misc

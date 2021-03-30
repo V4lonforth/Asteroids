@@ -14,9 +14,9 @@ namespace Scripts.EntityComponents.MovementControllers
 
         public virtual void Spawn(Vector2 position, float rotation, Vector2 initialVelocity)
         {
-            Movement.SetPosition(position);
-            Movement.SetRotation(rotation);
-            Movement.SetVelocity(initialVelocity);
+            Movement.Position = position;
+            Movement.Rotation = rotation;
+            Movement.Velocity = initialVelocity;
         }
     }
 }

@@ -13,15 +13,17 @@ GameObject:
   - component: {fileID: 7505098921218453431}
   - component: {fileID: 408664260169831292}
   - component: {fileID: 3080626005316783739}
+  - component: {fileID: 3078622663404332323}
   - component: {fileID: 4836027058304804685}
   - component: {fileID: 8216791484993781631}
   - component: {fileID: 6006325525192974211}
   - component: {fileID: -36021436238687460}
   - component: {fileID: -8058891351280937062}
   - component: {fileID: 1640405284296307196}
+  - component: {fileID: 5091554346746713376}
   m_Layer: 7
   m_Name: LargeAsteroid1
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,6 +163,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6302ee1257fc44ec8beb30a05c76ac4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drag: 0
+--- !u!114 &3078622663404332323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492431884426954075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebfed0e22634f4f82837965252328aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4836027058304804685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,3 +263,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 50
+--- !u!114 &5091554346746713376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492431884426954075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad74a52ecb1441188602ff40b0abe690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragmentPrefabs:
+  - {fileID: 169975631437559589, guid: 51379a7d319489b4a8eaf4cb8a129386, type: 3}
+  - {fileID: 4134158986630644094, guid: 92668d23c3edf7f44b37cfc3b19c9eeb, type: 3}
+  - {fileID: 767865266427775942, guid: 136d99ef1ff7b2b40a6bbdf9af84fffb, type: 3}
+  fragmentAmount: 9
+  minInitialSpeed: 0.3
+  maxInitialSpeed: 1.5
+  wreckTimeSkip: 0.1

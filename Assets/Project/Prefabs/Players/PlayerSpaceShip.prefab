@@ -59,15 +59,17 @@ GameObject:
   - component: {fileID: 2005568481328819001}
   - component: {fileID: 2005568481328819005}
   - component: {fileID: 2005568481328818994}
+  - component: {fileID: -8435850618618444640}
   - component: {fileID: 2005568481328818993}
   - component: {fileID: 2005568481328819000}
   - component: {fileID: 2005568481328819007}
   - component: {fileID: 2005568481328819003}
   - component: {fileID: 2005568481328819002}
   - component: {fileID: 1909464418}
+  - component: {fileID: -5329892297785741597}
   m_Layer: 6
   m_Name: PlayerSpaceShip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,6 +244,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6302ee1257fc44ec8beb30a05c76ac4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drag: 0.25
+--- !u!114 &-8435850618618444640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005568481328818992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebfed0e22634f4f82837965252328aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2005568481328818993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +271,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 7
   acceleration: 6
-  drag: 0.25
   rotationSpeed: 270
 --- !u!114 &2005568481328819000
 MonoBehaviour:
@@ -327,3 +341,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5329892297785741597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005568481328818992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad74a52ecb1441188602ff40b0abe690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragmentPrefabs:
+  - {fileID: 5089816466552140447, guid: 71575905c82b87b40bad2509e25c678b, type: 3}
+  - {fileID: 8090258793927808328, guid: 79e4e7dec5a0b6f4cab502b1e5ae1a8c, type: 3}
+  - {fileID: 828356698111158936, guid: 931e75ed983d6d5489f043ab88f0cf33, type: 3}
+  fragmentAmount: 5
+  minInitialSpeed: 0.2
+  maxInitialSpeed: 0.8
+  wreckTimeSkip: 0.1

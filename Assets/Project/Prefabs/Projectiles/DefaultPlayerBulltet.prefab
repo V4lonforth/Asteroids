@@ -13,13 +13,15 @@ GameObject:
   - component: {fileID: 6955815410289535806}
   - component: {fileID: 1483229523800188212}
   - component: {fileID: 3338831718141079400}
+  - component: {fileID: 6529142487049573643}
   - component: {fileID: 6636493465659418627}
   - component: {fileID: -4378845637205748441}
   - component: {fileID: 9157619869952552042}
   - component: {fileID: 2943365587541829528}
+  - component: {fileID: 6935151018932695873}
   m_Layer: 9
   m_Name: DefaultPlayerBulltet
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,6 +140,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6302ee1257fc44ec8beb30a05c76ac4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drag: 0
+--- !u!114 &6529142487049573643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687650036272386996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebfed0e22634f4f82837965252328aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6636493465659418627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,3 +207,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToRemove: 1.5
+--- !u!114 &6935151018932695873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687650036272386996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b924e6943145d5b8f26867b49050ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drag: 0
