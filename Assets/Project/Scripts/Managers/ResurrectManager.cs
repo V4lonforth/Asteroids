@@ -8,23 +8,26 @@ namespace Scripts.Managers
     public class ResurrectManager : MonoBehaviour
     {
         public Action<int> OnLivesChanged;
-        
+
         [SerializeField] private int lives;
         [SerializeField] private float respawnTime;
 
         public int LivesLeft { get; private set; }
-        
+
+        private void Awake()
+        {
+            GameManager.Instance.OnGameStart += AddPlayerListener;
+        }
+
         private void Start()
         {
-            GameManager.Instance.Spawner.OnPlayerSpawn += AddPlayerListener;
-            
             LivesLeft = lives;
             OnLivesChanged?.Invoke(LivesLeft);
         }
 
-        private void AddPlayerListener(GameObject player)
+        private void AddPlayerListener()
         {
-            player.GetComponent<LifeCycleController>().OnDestroy += CheckPlayerDeath;
+            GameManager.Instance.Player.GetComponent<LifeCycleController>().OnDestroy += CheckPlayerDeath;
         }
 
         private void CheckPlayerDeath(LifeCycleController playerLifeCycleController)
