@@ -10,11 +10,18 @@ namespace Scripts.Managers
     {
         public Rect ArenaArea => arenaArea;
         public Spawner Spawner { get; private set; }
+        public bool Finished { get; private set; }
+
+        public Action OnGameStart { get; set; }
+        public Action OnGameFinish { get; set; }
+        
+        public Action OnRoundStart { get; set; }
+        public Action OnRoundFinish { get; set; }
 
         [SerializeField] private Rect arenaArea;
 
         private readonly List<Remover> _removers = new List<Remover>();
-        private int _currentRound = 1;
+        private int _currentRound;
         
         private void Awake()
         {
@@ -30,9 +37,32 @@ namespace Scripts.Managers
         private void StartGame()
         {
             Spawner.StartGame(arenaArea);
-            Spawner.StartRound(_currentRound);
+            OnGameStart?.Invoke();
+         
+            StartRound();
         }
 
+        private void StartRound()
+        {
+            _currentRound++;
+            Spawner.StartRound(_currentRound);
+            OnRoundStart?.Invoke();
+        }
+
+        private void FinishRound()
+        {
+            OnRoundFinish?.Invoke();
+            
+            StartRound();
+        }
+
+        private void FinishGame()
+        {
+            Finished = true;
+            
+            OnGameFinish?.Invoke();
+        }
+        
         private void AddEnemyListener(GameObject enemyObject)
         {
             var remover = enemyObject.GetComponent<Remover>();
@@ -47,8 +77,7 @@ namespace Scripts.Managers
             _removers.Remove(remover);
             if (_removers.Count > 0 || Spawner.IsSpawning) return;
 
-            _currentRound++;
-            Spawner.StartRound(_currentRound);
+            FinishRound();
         }
     }
 }

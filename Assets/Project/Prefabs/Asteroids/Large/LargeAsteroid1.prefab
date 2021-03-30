@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6006325525192974211}
   - component: {fileID: -36021436238687460}
   - component: {fileID: -8058891351280937062}
+  - component: {fileID: 1640405284296307196}
   m_Layer: 7
   m_Name: LargeAsteroid1
   m_TagString: Untagged
@@ -234,3 +235,16 @@ MonoBehaviour:
   - {fileID: 2736857750751425896, guid: 5d6b06049c8eb254fa7f409596c823c2, type: 3}
   - {fileID: 6206143111624908939, guid: 3bef5a45345f28e4ab81e14af9955e65, type: 3}
   splitCount: 2
+--- !u!114 &1640405284296307196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492431884426954075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31784aa8e2a84a8e9689805bb246bc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reward: 50

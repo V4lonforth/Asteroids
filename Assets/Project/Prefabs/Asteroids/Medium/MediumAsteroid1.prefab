@@ -39,6 +39,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MediumAsteroid1
       objectReference: {fileID: 0}
+    - target: {fileID: 1640405284296307196, guid: 2c871acac49e5e44696856b14827380c, type: 3}
+      propertyPath: reward
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 3721399384404110714, guid: 2c871acac49e5e44696856b14827380c, type: 3}
       propertyPath: m_RootOrder
       value: 0

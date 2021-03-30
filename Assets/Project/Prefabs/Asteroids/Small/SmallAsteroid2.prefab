@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[11].y
       value: 0.28427574
       objectReference: {fileID: 0}
+    - target: {fileID: 6082569120273154105, guid: c1e5d6a7adb53a34ea68a714c6bb2e0e, type: 3}
+      propertyPath: reward
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6204954702187050142, guid: c1e5d6a7adb53a34ea68a714c6bb2e0e, type: 3}
       propertyPath: m_Name
       value: SmallAsteroid2
