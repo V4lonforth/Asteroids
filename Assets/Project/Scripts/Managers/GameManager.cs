@@ -20,6 +20,8 @@ namespace Scripts.Managers
 
         [SerializeField] private Rect arenaArea;
 
+        public GameObject Player { get; private set; }
+        
         private readonly List<LifeCycleController> _removers = new List<LifeCycleController>();
         private int _currentRound;
         
@@ -27,6 +29,7 @@ namespace Scripts.Managers
         {
             Spawner = GetComponent<Spawner>();
             Spawner.OnEnemySpawn += AddEnemyListener;
+            Spawner.OnPlayerSpawn += p => Player = p;
         }
 
         private void Start()

@@ -24,9 +24,11 @@ namespace Scripts.EntityComponents.AttackControllers
             }
         }
 
+        public bool CanAttack => _remainingCooldown <= 0f;
+
         public void Attack()
         {
-            if (_remainingCooldown > 0f) return;
+            if (!CanAttack) return;
 
             _remainingCooldown = cooldown;
             

@@ -18,8 +18,33 @@ namespace Scripts.Managers
 
         [SerializeField] private GameObject playerPrefab;
         [SerializeField] private List<GameObject> initialEnemyPrefabs;
+        [SerializeField] private List<GameObject> duringRoundEnemyPrefabs;
 
+        [SerializeField] private float minTimeToSpawnEnemy;
+        [SerializeField] private float maxTimeToSpawnEnemy;
+        
         private Rect _arenaArea;
+        
+        private float _remainingTimeToSpawnEnemy;
+        private int _enemiesToSpawn;
+
+        private void Update()
+        {
+            if (!IsSpawning) return;
+            if (_enemiesToSpawn <= 0)
+            {
+                IsSpawning = false;
+                return;
+            }
+            
+            _remainingTimeToSpawnEnemy -= Time.deltaTime;
+            if (_remainingTimeToSpawnEnemy > 0) return;
+            
+            SpawnEnemy(duringRoundEnemyPrefabs[Random.Range(0, duringRoundEnemyPrefabs.Count)],
+                GetRandomBorderPosition(GetRandomBorder()), 0f, Vector2.zero);
+            _enemiesToSpawn--;
+            _remainingTimeToSpawnEnemy = Random.Range(minTimeToSpawnEnemy, maxTimeToSpawnEnemy);
+        }
 
         public void StartGame(Rect arenaArea)
         {
@@ -30,13 +55,14 @@ namespace Scripts.Managers
         public void StartRound(int number)
         {
             IsSpawning = true;
+            
+            _enemiesToSpawn = number;
+            _remainingTimeToSpawnEnemy = Random.Range(minTimeToSpawnEnemy, maxTimeToSpawnEnemy);
 
             for (var i = 0; i < number; i++)
             {
                 SpawnEnemy(initialEnemyPrefabs[Random.Range(0, initialEnemyPrefabs.Count)]);
             }
-
-            IsSpawning = false;
         }
 
         private void SpawnPlayer()
@@ -65,7 +91,7 @@ namespace Scripts.Managers
             return spawnedObject;
         }
 
-        private static Vector2Int GetRandomBorder()
+        private Vector2Int GetRandomBorder()
         {
             var direction = Random.Range(0, 2) * 2 - 1;
             return Random.Range(0, 2) == 0 ? new Vector2Int(direction, 0) : new Vector2Int(0, direction);
