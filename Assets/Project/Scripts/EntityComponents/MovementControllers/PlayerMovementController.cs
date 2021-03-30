@@ -6,15 +6,25 @@ namespace Scripts.EntityComponents.MovementControllers
 {
     public class PlayerMovementController : MovementController
     {
+        private static readonly int IsAccelerating = Animator.StringToHash("IsAccelerating");
+        
         [SerializeField] private float maxSpeed;
         [SerializeField] private float acceleration;
         [SerializeField] private float drag;
 
         [SerializeField] private float rotationSpeed;
 
+        private Animator _animator;
+
         private float _rotationVelocity;
         private bool _isAccelerating;
 
+        protected new void Awake()
+        {
+            base.Awake();
+            _animator = GetComponent<Animator>();
+        }
+        
         protected void Update()
         {
             Movement.Rotate(_rotationVelocity * Time.deltaTime);
@@ -33,13 +43,14 @@ namespace Scripts.EntityComponents.MovementControllers
             return Vector2.ClampMagnitude(Movement.Velocity + currentAcceleration, maxSpeed);
         }
         
-        public void OnRotate(InputValue input)
+        private void OnRotate(InputValue input)
         {
             _rotationVelocity = input.Get<float>() * rotationSpeed;
         }
-        public void OnAccelerate(InputValue input)
+        private void OnAccelerate(InputValue input)
         {
             _isAccelerating = input.isPressed;
+            _animator.SetBool(IsAccelerating, _isAccelerating);
         }
     }
 }
